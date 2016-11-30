@@ -19,7 +19,8 @@ router.route('/')
 		})
 	})
 	.post((req, res) => {
-		const { first_name, last_name, employee_id, is_admin } = req.body
+		let { first_name, last_name, employee_id, is_admin } = req.body
+		employee_id = employee_id.toString();
 		pg.connect(connectionString, (err, client, done) => {
 			if(err) {
 				done();
